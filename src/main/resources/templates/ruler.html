@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Правители</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header.html :: header"></header>
+<main>
+    <div th:each="ruler : ${rulers}">
+        <P th:text="${ruler.name} + ' ' + ${ruler.age}"></P>
+    </div>
+
+    </div>
+    <a href="/ruler/rulerAdd">Добавить правителя</a>
+</main>
+
+</body>
+</html>

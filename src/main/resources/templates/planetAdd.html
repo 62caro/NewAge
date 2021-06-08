@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Добавить планету</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header.html :: header"></header>
+<main>
+    <div>
+        <form action="/planet/planetAdd" method="post" enctype="multipart/form-data">
+            <input type="text" name="name" placeholder="Введите название планеты">
+
+            <div class="col-lg-3" th:object="${ruler}">
+                <select class="form-control" id="rulerPlanet" name="rulerPlanet">
+                    <option value="">Выбрать правителя</option>
+                    <option th:each="rulerplanet : ${rulers}"
+                            th:value="${rulerplanet.name}"
+                            th:text="${rulerplanet.name}"></option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Добавить нового правителя</button>
+        </form>
+
+    </div>
+</main>
+
+</body>
+</html>

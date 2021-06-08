@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <title>Главная</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header.html :: header"></header>
+<main>
+    <div>
+        <h2>Топ 10 молодых правителей</h2>
+    </div>
+    <div th:each="ruler : ${rulers}">
+        <p th:text="'Имя: ' + ${ruler.name} + ', Возраст: ' + ${ruler.age}"></p>
+    </div>
+    <div>
+        <h2>Лентяи-повелители</h2>
+    </div>
+    <div th:each="lazyRuler : ${lazyRulers}">
+        <p th:text="'Имя: ' + ${lazyRuler.name}"></p>
+    </div>
+</main>
+
+</body>
+</html>
